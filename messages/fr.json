@@ -16,11 +16,33 @@
   },
   "result": {
     "title": "Résultat de la Standardisation",
-    "verified": "Vérifié auprès du registre administratif national",
+    "verified": "Vérifié",
     "original": "Entrée Originale",
     "standardized": "Nom Standardisé",
     "approve": "Approuver",
     "edit": "Modifier"
+  },
+  "howItWorks": {
+    "title": "Comment ça fonctionne",
+    "challenge": {
+      "title": "Le Défi",
+      "desc": "Les noms mal orthographiés, les variantes phonétiques et les erreurs de saisie créent des doublons et des enregistrements administratifs incohérents."
+    },
+    "engine": {
+      "title": "Le Moteur IA",
+      "desc": "Notre IA de normalisation phonétique analyse la prononciation et la structure des noms en utilisant des LLM avancés (Gemini, Claude) pour produire la forme officielle."
+    },
+    "result": {
+      "title": "Le Résultat Souverain",
+      "desc": "Des données d'identité propres et standardisées, un traitement administratif accéléré et zéro doublon dans le registre national."
+    }
+  },
+  "footer": {
+    "slogan": "Smart Identity Starts at Birth",
+    "documentation": "Documentation",
+    "privacy": "Confidentialité",
+    "support": "Support",
+    "copyright": "© 2026 N-ID Sovereign Systems. Tous droits réservés."
   },
   "admin": {
     "title": "File d'Attente de Validation",

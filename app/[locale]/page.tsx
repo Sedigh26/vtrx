@@ -3,6 +3,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import NormalizationTool from '@/components/normalization-tool';
 import SovereignCard from '@/components/sovereign-card';
+import HowItWorks from '@/components/how-it-works';
+import Footer from '@/components/footer';
 import AdminTable from '@/components/admin-table';
 import { useNameStandardizer } from '@/hooks/use-name-standardizer';
 
@@ -22,9 +24,9 @@ export default function Home() {
   } = useNameStandardizer();
 
   return (
-    <main className="min-h-screen bg-[#F8F9FA] flex flex-col">
-      <div className="flex-1 flex flex-col items-center justify-center px-4">
-        <div className="w-full max-w-xl flex flex-col items-center">
+    <main className="flex min-h-screen flex-col bg-[#F8F9FA]">
+      <div className="flex flex-1 flex-col items-center justify-center px-4">
+        <div className="flex w-full max-w-xl flex-col items-center">
           <NormalizationTool
             inputValue={inputValue}
             setInputValue={setInputValue}
@@ -47,7 +49,7 @@ export default function Home() {
                   damping: 22,
                   mass: 1,
                 }}
-                className="w-full mt-3"
+                className="mt-3 w-full"
               >
                 <SovereignCard
                   original={result.original}
@@ -57,7 +59,9 @@ export default function Home() {
                   onEdit={() => {
                     editName();
                     setTimeout(() => {
-                      document.getElementById('normalization-tool')?.scrollIntoView({ behavior: 'smooth' });
+                      document
+                        .getElementById('normalization-tool')
+                        ?.scrollIntoView({ behavior: 'smooth' });
                     }, 50);
                   }}
                 />
@@ -67,10 +71,14 @@ export default function Home() {
         </div>
       </div>
 
+      <HowItWorks />
+
       <AdminTable
         records={adminRecords}
         onUpdateStatus={updateAdminStatus}
       />
+
+      <Footer />
     </main>
   );
 }

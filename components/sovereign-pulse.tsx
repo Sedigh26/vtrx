@@ -6,7 +6,7 @@ export default function SovereignPulse() {
   return (
     <div className="relative flex h-6 w-6 items-center justify-center">
       <motion.span
-        className="absolute inset-0 rounded-full border-2 border-sovereign-emerald"
+        className="absolute inset-0 rounded-full border-2 border-[#1A73E8]"
         animate={{
           scale: [1, 1.8, 1],
           opacity: [0.6, 0, 0.6],
@@ -18,7 +18,7 @@ export default function SovereignPulse() {
         }}
       />
       <motion.span
-        className="absolute inset-0 rounded-full border-2 border-sovereign-emerald"
+        className="absolute inset-0 rounded-full border-2 border-[#1A73E8]"
         animate={{
           scale: [1, 1.4, 1],
           opacity: [0.8, 0.2, 0.8],
@@ -30,7 +30,7 @@ export default function SovereignPulse() {
           delay: 0.2,
         }}
       />
-      <span className="relative h-2 w-2 rounded-full bg-sovereign-emerald" />
+      <span className="relative h-2 w-2 rounded-full bg-[#1A73E8]" />
     </div>
   );
 }

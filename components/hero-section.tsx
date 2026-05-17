@@ -19,9 +19,9 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.5 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/5 bg-white/[0.02] px-4 py-1.5 text-xs text-zinc-500"
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#DADCE0] bg-white px-4 py-1.5 text-xs text-[#70757a]"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-sovereign-emerald" />
+          <span className="h-1.5 w-1.5 rounded-full bg-[#1A73E8]" />
           {tNav('ministry')}
         </motion.div>
 
@@ -29,10 +29,10 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.6 }}
-          className="mb-4 text-4xl font-bold tracking-tight text-white md:text-6xl"
+          className="mb-4 text-4xl font-bold tracking-tight text-[#202124] md:text-6xl"
         >
           {t('title')}
-          <span className="block bg-gradient-to-r from-sovereign-emerald to-sovereign-accent bg-clip-text text-transparent">
+          <span className="block bg-gradient-to-r from-[#1A73E8] to-[#1557B0] bg-clip-text text-transparent">
             {t('subtitle')}
           </span>
         </motion.h1>
@@ -41,7 +41,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="mx-auto max-w-xl text-base leading-relaxed text-zinc-500"
+          className="mx-auto max-w-xl text-base leading-relaxed text-[#70757a]"
         >
           {t('description')}
         </motion.p>

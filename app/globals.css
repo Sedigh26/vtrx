@@ -3,10 +3,10 @@
 @theme inline {
   --font-sans: var(--font-jakarta);
   --font-mono: var(--font-jakarta);
-  --color-sovereign-black: #050505;
-  --color-sovereign-darkGray: #0a0a0a;
-  --color-sovereign-emerald: #10b981;
-  --color-sovereign-accent: #059669;
+  --color-sovereign-black: #f8f9fa;
+  --color-sovereign-darkGray: #f0f1f3;
+  --color-sovereign-emerald: #1a73e8;
+  --color-sovereign-accent: #1557b0;
   --animate-sovereign-pulse: sovereign-pulse 1.5s ease-in-out infinite;
 }
 
@@ -23,8 +23,8 @@ body {
 }
 
 ::selection {
-  background-color: rgba(16, 185, 129, 0.3);
-  color: #ffffff;
+  background-color: rgba(26, 115, 232, 0.2);
+  color: #202124;
 }
 
 ::-webkit-scrollbar {
@@ -36,21 +36,21 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.08);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 @keyframes sovereign-pulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+    box-shadow: 0 0 0 0 rgba(26, 115, 232, 0.5);
   }
   50% {
-    box-shadow: 0 0 0 20px rgba(16, 185, 129, 0);
+    box-shadow: 0 0 0 20px rgba(26, 115, 232, 0);
   }
 }
 

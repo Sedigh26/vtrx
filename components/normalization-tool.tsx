@@ -111,22 +111,22 @@ export default function NormalizationTool({
         className={[
           'relative flex items-center w-full',
           'rounded-full',
-          'bg-white/[0.05] backdrop-blur-2xl',
+          'bg-white',
           'border transition-all duration-300',
           'px-4 sm:px-6 py-2 sm:py-3',
-          'shadow-2xl shadow-black/50',
+          'shadow-md',
           isListening
-            ? 'border-sovereign-emerald animate-sovereign-pulse'
+            ? 'border-[#1A73E8] animate-sovereign-pulse'
             : isFocused
-              ? 'border-sovereign-emerald/70'
-              : 'border-white/10',
+              ? 'border-[#1A73E8]'
+              : 'border-[#DADCE0]',
         ].join(' ')}
         dir={isRtl ? 'rtl' : 'ltr'}
       >
         <Search
           className={[
             'h-5 w-5 shrink-0',
-            isFocused ? 'text-sovereign-emerald' : 'text-zinc-500',
+            isFocused ? 'text-[#1A73E8]' : 'text-[#70757a]',
             'transition-colors duration-300',
           ].join(' ')}
         />
@@ -144,7 +144,7 @@ export default function NormalizationTool({
               onSubmit();
             }
           }}
-          className="flex-1 bg-transparent px-3 sm:px-4 py-2 text-white placeholder:text-zinc-600 focus:outline-none text-base disabled:opacity-50"
+          className="flex-1 bg-transparent px-3 sm:px-4 py-2 text-[#202124] placeholder:text-[#70757a] focus:outline-none text-base disabled:opacity-50"
           style={{
             fontFamily: isRtl ? 'var(--font-tajawal)' : 'var(--font-jakarta)',
           }}
@@ -158,7 +158,7 @@ export default function NormalizationTool({
               'rounded-full p-2 sm:p-2.5 transition-all duration-300',
               isListening
                 ? 'text-red-400 bg-red-500/10'
-                : 'text-zinc-500 hover:text-sovereign-emerald hover:bg-white/5',
+                : 'text-[#70757a] hover:text-[#1A73E8] hover:bg-[#F0F1F3]',
               isLoading ? 'opacity-40 cursor-not-allowed' : '',
             ].join(' ')}
           >
@@ -175,9 +175,9 @@ export default function NormalizationTool({
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.15 }}
             className={[
-              'rounded-full bg-sovereign-emerald p-2.5 sm:p-3',
-              'text-white shadow-lg shadow-sovereign-emerald/25',
-              'hover:bg-sovereign-accent hover:shadow-sovereign-emerald/35',
+              'rounded-full bg-[#1A73E8] p-2.5 sm:p-3',
+              'text-white shadow-lg shadow-[#1A73E8]/25',
+              'hover:bg-[#1557B0] hover:shadow-[#1A73E8]/35',
               'transition-all duration-300',
               'disabled:opacity-40 disabled:cursor-not-allowed',
             ].join(' ')}

@@ -25,13 +25,13 @@ export default function Home() {
   } = useNameStandardizer(t('error'));
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-[#F8F9FA]">
       <div className="flex flex-col items-center px-4 pt-36 sm:pt-44 pb-8">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="mb-2 text-xs text-zinc-600 font-medium tracking-wider uppercase"
+          className="mb-2 text-xs text-[#70757a] font-medium tracking-wider uppercase"
         >
           SovereignID AI
         </motion.p>
@@ -54,7 +54,7 @@ export default function Home() {
               exit={{ opacity: 0, y: -10 }}
               className="mt-4 w-full max-w-xl"
             >
-              <div className="rounded-2xl border border-red-500/15 bg-red-500/[0.03] px-5 py-3.5 text-center text-xs text-red-400/80 backdrop-blur-xl">
+              <div className="rounded-2xl border border-red-500/15 bg-red-500/5 px-5 py-3.5 text-center text-xs text-red-500/80">
                 {error}
               </div>
             </motion.div>

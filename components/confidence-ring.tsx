@@ -14,7 +14,7 @@ export default function ConfidenceRing({ value }: ConfidenceRingProps) {
 
   const color =
     clamped >= 80
-      ? '#10b981'
+      ? '#1A73E8'
       : clamped >= 50
         ? '#f59e0b'
         : '#ef4444';
@@ -27,7 +27,7 @@ export default function ConfidenceRing({ value }: ConfidenceRingProps) {
           cy="44"
           r={radius}
           fill="none"
-          stroke="rgba(255,255,255,0.08)"
+          stroke="rgba(0,0,0,0.08)"
           strokeWidth="5"
         />
         <motion.circle
@@ -45,10 +45,10 @@ export default function ConfidenceRing({ value }: ConfidenceRingProps) {
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-2xl font-bold text-white">
+        <span className="text-2xl font-bold text-[#202124]">
           {Math.round(clamped)}%
         </span>
-        <span className="text-[10px] text-zinc-500">Confidence</span>
+        <span className="text-[10px] text-[#70757a]">Confidence</span>
       </div>
     </div>
   );

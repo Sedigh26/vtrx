@@ -40,32 +40,32 @@ export default function SovereignCard({
         damping: 22,
         mass: 1,
       }}
-      className="mx-auto mt-2 rounded-3xl border border-white/[0.06] bg-white/[0.02] p-6 shadow-2xl shadow-black/50 backdrop-blur-2xl md:p-10"
+      className="mx-auto mt-2 rounded-3xl border border-[#DADCE0] bg-white p-6 shadow-md md:p-10"
     >
-      <div className="mb-5 flex items-center gap-3 border-b border-white/[0.04] pb-5">
-        <div className="rounded-xl bg-sovereign-emerald/10 p-2">
-          <ShieldCheck className="h-5 w-5 text-sovereign-emerald" />
+      <div className="mb-5 flex items-center gap-3 border-b border-[#DADCE0]/50 pb-5">
+        <div className="rounded-xl bg-[#1A73E8]/10 p-2">
+          <ShieldCheck className="h-5 w-5 text-[#1A73E8]" />
         </div>
         <div>
-          <h3 className="text-base font-semibold text-white md:text-lg">
+          <h3 className="text-base font-semibold text-[#202124] md:text-lg">
             {t('title')}
           </h3>
-          <p className="text-xs text-zinc-600">{t('verified')}</p>
+          <p className="text-xs text-[#70757a]">{t('verified')}</p>
         </div>
       </div>
 
       <div className="flex flex-col items-center gap-6 md:flex-row md:items-start">
         <div className="flex-1 space-y-5">
           <div>
-            <p className="mb-1 text-[11px] font-medium uppercase tracking-widest text-zinc-600">
+            <p className="mb-1 text-[11px] font-medium uppercase tracking-widest text-[#70757a]">
               {t('original')}
             </p>
-            <p className="rounded-xl border border-white/[0.04] bg-white/[0.01] px-4 py-3 text-sm text-zinc-400">
+            <p className="rounded-xl border border-[#DADCE0] bg-[#F8F9FA] px-4 py-3 text-sm text-[#70757a]">
               {original}
             </p>
           </div>
           <div>
-            <p className="mb-1 text-[11px] font-medium uppercase tracking-widest text-zinc-600">
+            <p className="mb-1 text-[11px] font-medium uppercase tracking-widest text-[#70757a]">
               {t('standardized')}
             </p>
             <motion.p
@@ -77,7 +77,7 @@ export default function SovereignCard({
                 damping: 15,
                 delay: 0.3,
               }}
-              className="text-2xl font-bold text-sovereign-emerald md:text-3xl"
+              className="text-2xl font-bold text-[#1A73E8] md:text-3xl"
             >
               {standardized}
             </motion.p>
@@ -89,13 +89,13 @@ export default function SovereignCard({
         </div>
       </div>
 
-      <div className="mt-6 flex flex-col gap-2.5 border-t border-white/[0.04] pt-5 sm:flex-row">
+      <div className="mt-6 flex flex-col gap-2.5 border-t border-[#DADCE0]/50 pt-5 sm:flex-row">
         <button
           onClick={handleCopy}
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/[0.06] bg-white/[0.02] px-5 py-3 text-xs font-medium text-zinc-300 transition-all duration-200 hover:border-white/10 hover:text-white md:text-sm"
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#DADCE0] bg-white px-5 py-3 text-xs font-medium text-[#70757a] transition-all duration-200 hover:border-[#1A73E8]/30 hover:text-[#202124] md:text-sm"
         >
           {copied ? (
-            <Check className="h-4 w-4 text-sovereign-emerald" />
+            <Check className="h-4 w-4 text-[#1A73E8]" />
           ) : (
             <Copy className="h-4 w-4" />
           )}
@@ -103,7 +103,7 @@ export default function SovereignCard({
         </button>
         <button
           onClick={onRequestAdmin}
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-sovereign-emerald/20 bg-sovereign-emerald/[0.04] px-5 py-3 text-xs font-medium text-sovereign-emerald transition-all duration-200 hover:bg-sovereign-emerald/10 md:text-sm"
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#1A73E8]/20 bg-[#1A73E8]/5 px-5 py-3 text-xs font-medium text-[#1A73E8] transition-all duration-200 hover:bg-[#1A73E8]/10 md:text-sm"
         >
           <ShieldCheck className="h-4 w-4" />
           {t('admin_request')}

@@ -44,7 +44,7 @@ export default function VoiceVisualizer({
             delay: bar.delay,
             ease: 'easeInOut',
           }}
-          className="w-[3px] rounded-full bg-gradient-to-t from-sovereign-emerald to-sovereign-accent opacity-70"
+          className="w-[3px] rounded-full bg-gradient-to-t from-[#1A73E8] to-[#1557B0] opacity-70"
         />
       ))}
     </div>

@@ -32,7 +32,7 @@ export default function RootLayout({ children }: Props) {
       className={`${jakarta.variable} ${tajawal.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-[#050505] text-white antialiased">
+      <body className="min-h-screen bg-[#F8F9FA] text-[#202124] antialiased">
         {children}
       </body>
     </html>

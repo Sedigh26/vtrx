@@ -2,22 +2,13 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { ArrowDown } from 'lucide-react';
 
 export default function HeroSection() {
   const t = useTranslations('hero');
   const tNav = useTranslations('nav');
 
-  const scrollToTool = () => {
-    document
-      .getElementById('normalization-tool')
-      ?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6">
-      <div className="absolute inset-0 bg-gradient-to-b from-sovereign-emerald/[0.03] via-transparent to-transparent" />
-
+    <section className="flex flex-col items-center justify-center px-6 pt-32 pb-12">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -50,24 +41,11 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="mx-auto mb-10 max-w-xl text-base leading-relaxed text-zinc-500"
+          className="mx-auto max-w-xl text-base leading-relaxed text-zinc-500"
         >
           {t('description')}
         </motion.p>
-
-        <motion.button
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.55, duration: 0.4 }}
-          onClick={scrollToTool}
-          className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-8 py-3.5 text-sm font-medium text-zinc-300 backdrop-blur-xl transition-all duration-300 hover:border-sovereign-emerald/30 hover:text-white"
-        >
-          {t('cta')}
-          <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
-        </motion.button>
       </motion.div>
-
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#050505] to-transparent" />
     </section>
   );
 }

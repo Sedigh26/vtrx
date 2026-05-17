@@ -7,6 +7,7 @@
   --color-sovereign-darkGray: #0a0a0a;
   --color-sovereign-emerald: #10b981;
   --color-sovereign-accent: #059669;
+  --animate-sovereign-pulse: sovereign-pulse 1.5s ease-in-out infinite;
 }
 
 [dir="rtl"] {

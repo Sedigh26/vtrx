@@ -17,7 +17,7 @@
     "description": "Saisissez un nom ci-dessous pour le normaliser selon le registre national.",
     "text_input": "Saisie Texte",
     "voice_input": "Saisie Vocale",
-    "placeholder": "ex. Sheikh Mohamed Bin Zayed",
+    "placeholder": "Saisissez un nom pour analyse...",
     "listening": "Écoute en cours...",
     "tap_mic": "Appuyez sur le microphone pour commencer",
     "submit": "Standardiser le Nom",

@@ -32,15 +32,15 @@ export default function SovereignCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30, scale: 0.97 }}
+      initial={{ opacity: 0, y: -24, scale: 0.97 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{
         type: 'spring',
         stiffness: 200,
-        damping: 20,
+        damping: 22,
         mass: 1,
       }}
-      className="mx-auto mt-6 max-w-xl rounded-3xl border border-white/[0.06] bg-white/[0.02] p-6 shadow-2xl shadow-black/50 backdrop-blur-2xl md:p-10"
+      className="mx-auto mt-2 rounded-3xl border border-white/[0.06] bg-white/[0.02] p-6 shadow-2xl shadow-black/50 backdrop-blur-2xl md:p-10"
     >
       <div className="mb-5 flex items-center gap-3 border-b border-white/[0.04] pb-5">
         <div className="rounded-xl bg-sovereign-emerald/10 p-2">

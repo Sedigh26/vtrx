@@ -22,7 +22,7 @@ export default function Home() {
     copyToClipboard,
     requestAdminValidation,
     updateAdminStatus,
-  } = useNameStandardizer(t('error'));
+  } = useNameStandardizer();
 
   return (
     <main className="min-h-screen bg-[#F8F9FA]">

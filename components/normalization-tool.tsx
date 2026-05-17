@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { Search, Mic, MicOff } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
-import SovereignPulse from './sovereign-pulse';
 
 interface SpeechRecognition extends EventTarget {
   lang: string;
@@ -170,25 +169,6 @@ export default function NormalizationTool({
             )}
           </button>
 
-          <motion.button
-            onClick={onSubmit}
-            disabled={isLoading || !inputValue.trim()}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.15 }}
-            className={[
-              'rounded-full bg-[#1A73E8] p-2.5 sm:p-3',
-              'text-white shadow-lg shadow-[#1A73E8]/25',
-              'hover:bg-[#1557B0] hover:shadow-[#1A73E8]/35',
-              'transition-all duration-300',
-              'disabled:opacity-40 disabled:cursor-not-allowed',
-            ].join(' ')}
-          >
-            {isLoading ? (
-              <SovereignPulse />
-            ) : (
-              <Search className="h-4 w-4 sm:h-5 sm:w-5" />
-            )}
-          </motion.button>
         </div>
       </div>
     </motion.div>

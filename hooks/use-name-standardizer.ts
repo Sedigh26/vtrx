@@ -78,6 +78,12 @@ export function useNameStandardizer() {
     [],
   );
 
+  const editName = useCallback(() => {
+    if (!result) return;
+    setInputValue(result.original);
+    setResult(null);
+  }, [result, setInputValue]);
+
   return {
     inputMode,
     setInputMode,
@@ -93,5 +99,6 @@ export function useNameStandardizer() {
     copyToClipboard,
     requestAdminValidation,
     updateAdminStatus,
+    editName,
   };
 }

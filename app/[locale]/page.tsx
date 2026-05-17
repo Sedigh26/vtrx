@@ -17,6 +17,7 @@ export default function Home() {
     setIsListening,
     submitName,
     requestAdminValidation,
+    editName,
     updateAdminStatus,
   } = useNameStandardizer();
 
@@ -54,8 +55,10 @@ export default function Home() {
                   confidence={result.confidence}
                   onApprove={requestAdminValidation}
                   onEdit={() => {
-                    setInputValue(result.original);
-                    document.getElementById('normalization-tool')?.scrollIntoView({ behavior: 'smooth' });
+                    editName();
+                    setTimeout(() => {
+                      document.getElementById('normalization-tool')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 50);
                   }}
                 />
               </motion.div>

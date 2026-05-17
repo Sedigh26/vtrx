@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Copy, ShieldCheck, Check } from 'lucide-react';
+import { Copy, ShieldCheck, Check, ArrowUpRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import ConfidenceRing from './confidence-ring';
 
 interface SovereignCardProps {
@@ -20,6 +21,7 @@ export default function SovereignCard({
   onCopy,
   onRequestAdmin,
 }: SovereignCardProps) {
+  const t = useTranslations('result');
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -30,68 +32,82 @@ export default function SovereignCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24, scale: 0.96 }}
+      initial={{ opacity: 0, y: 30, scale: 0.97 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="mx-auto mt-8 max-w-3xl rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-xl"
+      transition={{
+        type: 'spring',
+        stiffness: 200,
+        damping: 20,
+        mass: 1,
+      }}
+      className="mx-auto mt-6 max-w-xl rounded-3xl border border-white/[0.06] bg-white/[0.02] p-6 shadow-2xl shadow-black/50 backdrop-blur-2xl md:p-10"
     >
-      <div className="mb-6 flex items-center gap-3 border-b border-white/10 pb-6">
-        <div className="rounded-lg bg-sovereign-emerald/10 p-2">
+      <div className="mb-5 flex items-center gap-3 border-b border-white/[0.04] pb-5">
+        <div className="rounded-xl bg-sovereign-emerald/10 p-2">
           <ShieldCheck className="h-5 w-5 text-sovereign-emerald" />
         </div>
         <div>
-          <h3 className="text-lg font-semibold text-white">
-            Standardization Result
+          <h3 className="text-base font-semibold text-white md:text-lg">
+            {t('title')}
           </h3>
-          <p className="text-sm text-zinc-500">
-            Verified against the national administrative registry
-          </p>
+          <p className="text-xs text-zinc-600">{t('verified')}</p>
         </div>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2">
-        <div className="space-y-6">
+      <div className="flex flex-col items-center gap-6 md:flex-row md:items-start">
+        <div className="flex-1 space-y-5">
           <div>
-            <p className="mb-1.5 text-xs font-medium uppercase tracking-wider text-zinc-500">
-              Original Input
+            <p className="mb-1 text-[11px] font-medium uppercase tracking-widest text-zinc-600">
+              {t('original')}
             </p>
-            <p className="rounded-xl border border-white/5 bg-white/[0.02] px-4 py-3 text-lg text-zinc-400">
+            <p className="rounded-xl border border-white/[0.04] bg-white/[0.01] px-4 py-3 text-sm text-zinc-400">
               {original}
             </p>
           </div>
           <div>
-            <p className="mb-1.5 text-xs font-medium uppercase tracking-wider text-zinc-500">
-              Standardized Output
+            <p className="mb-1 text-[11px] font-medium uppercase tracking-widest text-zinc-600">
+              {t('standardized')}
             </p>
-            <p className="text-3xl font-bold text-sovereign-emerald">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: 'spring',
+                stiffness: 200,
+                damping: 15,
+                delay: 0.3,
+              }}
+              className="text-2xl font-bold text-sovereign-emerald md:text-3xl"
+            >
               {standardized}
-            </p>
+            </motion.p>
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center gap-2">
+        <div className="flex flex-col items-center gap-1">
           <ConfidenceRing value={confidence} />
         </div>
       </div>
 
-      <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 sm:flex-row">
+      <div className="mt-6 flex flex-col gap-2.5 border-t border-white/[0.04] pt-5 sm:flex-row">
         <button
           onClick={handleCopy}
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-white/10"
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/[0.06] bg-white/[0.02] px-5 py-3 text-xs font-medium text-zinc-300 transition-all duration-200 hover:border-white/10 hover:text-white md:text-sm"
         >
           {copied ? (
-            <Check className="h-5 w-5 text-sovereign-emerald" />
+            <Check className="h-4 w-4 text-sovereign-emerald" />
           ) : (
-            <Copy className="h-5 w-5" />
+            <Copy className="h-4 w-4" />
           )}
-          {copied ? 'Copied!' : 'Copy to Clipboard'}
+          {copied ? t('copied') : t('copy')}
         </button>
         <button
           onClick={onRequestAdmin}
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-sovereign-emerald/30 bg-sovereign-emerald/10 px-6 py-3 font-medium text-sovereign-emerald transition-all duration-200 hover:bg-sovereign-emerald/20"
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-sovereign-emerald/20 bg-sovereign-emerald/[0.04] px-5 py-3 text-xs font-medium text-sovereign-emerald transition-all duration-200 hover:bg-sovereign-emerald/10 md:text-sm"
         >
-          <ShieldCheck className="h-5 w-5" />
-          Request Admin Validation
+          <ShieldCheck className="h-4 w-4" />
+          {t('admin_request')}
+          <ArrowUpRight className="h-3 w-3 opacity-60" />
         </button>
       </div>
     </motion.div>

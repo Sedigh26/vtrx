@@ -1,8 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
+import { ArrowDown } from 'lucide-react';
 
 export default function HeroSection() {
+  const t = useTranslations('hero');
+  const tNav = useTranslations('nav');
+
   const scrollToTool = () => {
     document
       .getElementById('normalization-tool')
@@ -10,35 +15,34 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-sovereign-darkGray via-sovereign-black to-sovereign-darkGray" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sovereign-emerald/8 via-transparent to-transparent" />
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6">
+      <div className="absolute inset-0 bg-gradient-to-b from-sovereign-emerald/[0.03] via-transparent to-transparent" />
 
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="relative z-10 max-w-4xl px-6 text-center"
+        className="relative z-10 mx-auto max-w-3xl text-center"
       >
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.1, duration: 0.5 }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-zinc-400 backdrop-blur-xl"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.5 }}
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/5 bg-white/[0.02] px-4 py-1.5 text-xs text-zinc-500"
         >
-          <span className="h-2 w-2 rounded-full bg-sovereign-emerald" />
-          Republic of Mauritania — Ministry of Interior
+          <span className="h-1.5 w-1.5 rounded-full bg-sovereign-emerald" />
+          {tNav('ministry')}
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="mb-6 text-5xl font-bold tracking-tight text-white md:text-7xl"
+          transition={{ delay: 0.25, duration: 0.6 }}
+          className="mb-4 text-4xl font-bold tracking-tight text-white md:text-6xl"
         >
-          SovereignID AI:{' '}
-          <span className="bg-gradient-to-r from-sovereign-emerald to-sovereign-accent bg-clip-text text-transparent">
-            National Identity Standardization
+          {t('title')}
+          <span className="block bg-gradient-to-r from-sovereign-emerald to-sovereign-accent bg-clip-text text-transparent">
+            {t('subtitle')}
           </span>
         </motion.h1>
 
@@ -46,25 +50,24 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-zinc-400 md:text-xl"
+          className="mx-auto mb-10 max-w-xl text-base leading-relaxed text-zinc-500"
         >
-          Converting phonetic and misspelled inputs into official
-          administrative records with high-precision AI.
+          {t('description')}
         </motion.p>
 
         <motion.button
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6, duration: 0.4 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.55, duration: 0.4 }}
           onClick={scrollToTool}
-          className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-sovereign-emerald to-sovereign-accent px-10 py-4 text-lg font-semibold text-white shadow-lg shadow-sovereign-emerald/25 transition-shadow duration-300 hover:shadow-sovereign-emerald/40"
+          className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-8 py-3.5 text-sm font-medium text-zinc-300 backdrop-blur-xl transition-all duration-300 hover:border-sovereign-emerald/30 hover:text-white"
         >
-          <span className="relative z-10">Begin Standardization</span>
-          <div className="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-sovereign-emerald/0 via-white/20 to-sovereign-emerald/0 opacity-0 transition-all duration-700 group-hover:translate-x-[100%] group-hover:opacity-100" />
+          {t('cta')}
+          <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
         </motion.button>
       </motion.div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sovereign-black to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#050505] to-transparent" />
     </section>
   );
 }

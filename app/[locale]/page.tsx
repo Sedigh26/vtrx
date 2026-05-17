@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import HeroSection from '@/components/hero-section';
 import NormalizationTool from '@/components/normalization-tool';
 import SovereignCard from '@/components/sovereign-card';
@@ -7,6 +8,7 @@ import AdminTable from '@/components/admin-table';
 import { useNameStandardizer } from '@/hooks/use-name-standardizer';
 
 export default function Home() {
+  const t = useTranslations('tool');
   const {
     inputMode,
     setInputMode,
@@ -22,12 +24,11 @@ export default function Home() {
     copyToClipboard,
     requestAdminValidation,
     updateAdminStatus,
-  } = useNameStandardizer();
+  } = useNameStandardizer(t('error'));
 
   return (
-    <main className="flex-1 bg-sovereign-black text-white">
+    <main className="min-h-screen">
       <HeroSection />
-
       <NormalizationTool
         inputMode={inputMode}
         setInputMode={setInputMode}
@@ -40,8 +41,8 @@ export default function Home() {
       />
 
       {error && (
-        <div className="mx-auto max-w-3xl px-6 pb-8">
-          <div className="rounded-2xl border border-red-500/30 bg-red-500/10 px-6 py-4 text-center text-red-400 backdrop-blur-xl">
+        <div className="mx-auto mt-4 max-w-xl px-4">
+          <div className="rounded-2xl border border-red-500/15 bg-red-500/[0.03] px-5 py-3.5 text-center text-xs text-red-400/80 backdrop-blur-xl">
             {error}
           </div>
         </div>

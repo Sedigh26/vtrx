@@ -11,7 +11,7 @@ export interface AdminRecord {
   status: 'pending' | 'approved' | 'rejected';
 }
 
-export function useNameStandardizer() {
+export function useNameStandardizer(errorMessage?: string) {
   const [inputMode, setInputMode] = useState<'text' | 'voice'>('text');
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -32,11 +32,11 @@ export function useNameStandardizer() {
       const data = await standardizeName(trimmed);
       setResult(data);
     } catch {
-      setError('Failed to connect to the AI service. Please try again.');
+      setError(errorMessage ?? 'Failed to connect to the AI service. Please try again.');
     } finally {
       setIsLoading(false);
     }
-  }, [inputValue]);
+  }, [inputValue, errorMessage]);
 
   const copyToClipboard = useCallback(async (text: string) => {
     try {

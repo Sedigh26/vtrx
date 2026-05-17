@@ -17,8 +17,11 @@ const tajawal = Tajawal({
 });
 
 export const metadata: Metadata = {
-  title: 'SovereignID AI',
-  description: 'National Identity Standardization',
+  title: 'N-ID',
+  description: 'Smart Identity Starts at Birth',
+  icons: {
+    icon: '/images/logo.jpeg',
+  },
 };
 
 type Props = {

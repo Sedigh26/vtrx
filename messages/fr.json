@@ -1,26 +1,16 @@
 {
   "metadata": {
-    "title": "SovereignID AI — Standardisation Nationale des Identités",
+    "title": "N-ID — Standardisation Nationale des Identités",
     "description": "Conversion des entrées phonétiques et mal orthographiées en registres administratifs officiels avec une IA de haute précision."
   },
   "nav": {
-    "ministry": "République de Mauritanie — Ministère de l'Intérieur"
-  },
-  "hero": {
-    "title": "SovereignID AI",
-    "subtitle": "Standardisation Nationale des Identités",
-    "description": "Conversion des entrées phonétiques et mal orthographiées en registres administratifs officiels avec une IA de haute précision.",
-    "cta": "Commencer la standardisation"
+    "work": "Travail",
+    "experience": "Expérience",
+    "contact": "Contact",
+    "letsTalk": "Discutons"
   },
   "tool": {
-    "title": "Moteur de Standardisation",
-    "description": "Saisissez un nom ci-dessous pour le normaliser selon le registre national.",
-    "text_input": "Saisie Texte",
-    "voice_input": "Saisie Vocale",
     "placeholder": "Saisissez un nom pour analyse...",
-    "listening": "Écoute en cours...",
-    "tap_mic": "Appuyez sur le microphone pour commencer",
-    "submit": "Standardiser le Nom",
     "loading": "L'IA analyse...",
     "error": "Échec de la connexion au service d'IA. Veuillez réessayer."
   },
@@ -28,7 +18,7 @@
     "title": "Résultat de la Standardisation",
     "verified": "Vérifié auprès du registre administratif national",
     "original": "Entrée Originale",
-    "standardized": "Sortie Standardisée",
+    "standardized": "Nom Standardisé",
     "approve": "Approuver",
     "edit": "Modifier"
   },

@@ -29,9 +29,8 @@
     "verified": "Vérifié auprès du registre administratif national",
     "original": "Entrée Originale",
     "standardized": "Sortie Standardisée",
-    "copied": "Copié !",
-    "copy": "Copier dans le presse-papier",
-    "admin_request": "Demander une Validation Administrative"
+    "approve": "Approuver",
+    "edit": "Modifier"
   },
   "admin": {
     "title": "File d'Attente de Validation",

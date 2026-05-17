@@ -80,8 +80,11 @@ export default function Home() {
                 original={result.original}
                 standardized={result.standardized}
                 confidence={result.confidence}
-                onCopy={() => copyToClipboard(result.standardized)}
-                onRequestAdmin={requestAdminValidation}
+                onApprove={requestAdminValidation}
+                onEdit={() => {
+                  setInputValue(result.original);
+                  document.getElementById('normalization-tool')?.scrollIntoView({ behavior: 'smooth' });
+                }}
               />
             </motion.div>
           )}

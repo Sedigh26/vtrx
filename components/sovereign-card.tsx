@@ -1,34 +1,28 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Copy, ShieldCheck, Check, ArrowUpRight } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { ShieldCheck, Check, Pencil } from 'lucide-react';
+import { useTranslations, useLocale } from 'next-intl';
 import ConfidenceRing from './confidence-ring';
 
 interface SovereignCardProps {
   original: string;
   standardized: string;
   confidence: number;
-  onCopy: () => void;
-  onRequestAdmin: () => void;
+  onApprove: () => void;
+  onEdit: () => void;
 }
 
 export default function SovereignCard({
   original,
   standardized,
   confidence,
-  onCopy,
-  onRequestAdmin,
+  onApprove,
+  onEdit,
 }: SovereignCardProps) {
   const t = useTranslations('result');
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = async () => {
-    await onCopy();
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
+  const locale = useLocale();
+  const isRtl = locale === 'ar';
 
   return (
     <motion.div
@@ -89,26 +83,40 @@ export default function SovereignCard({
         </div>
       </div>
 
-      <div className="mt-6 flex flex-col gap-2.5 border-t border-[#DADCE0]/50 pt-5 sm:flex-row">
+      <div
+        className={`mt-6 flex gap-4 border-t border-[#DADCE0]/50 pt-5 ${
+          isRtl ? 'justify-start' : 'justify-end'
+        }`}
+      >
         <button
-          onClick={handleCopy}
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#DADCE0] bg-white px-5 py-3 text-xs font-medium text-[#70757a] transition-all duration-200 hover:border-[#1A73E8]/30 hover:text-[#202124] md:text-sm"
+          onClick={onEdit}
+          className="group flex items-center gap-2 rounded-full border border-[#DADCE0] bg-transparent px-5 py-2.5 text-sm font-medium text-[#1A73E8] transition-all duration-200 hover:border-[#1A73E8]/30 hover:bg-[#1A73E8]/5"
         >
-          {copied ? (
-            <Check className="h-4 w-4 text-[#1A73E8]" />
-          ) : (
-            <Copy className="h-4 w-4" />
-          )}
-          {copied ? t('copied') : t('copy')}
+          <Pencil className="h-4 w-4 transition-transform duration-200 group-hover:rotate-[-8deg]" />
+          {t('edit')}
         </button>
-        <button
-          onClick={onRequestAdmin}
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#1A73E8]/20 bg-[#1A73E8]/5 px-5 py-3 text-xs font-medium text-[#1A73E8] transition-all duration-200 hover:bg-[#1A73E8]/10 md:text-sm"
+
+        <motion.button
+          onClick={onApprove}
+          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.03 }}
+          transition={{ duration: 0.2 }}
+          className="relative flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#1A73E8] to-[#1557B0] px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-[#1A73E8]/30 transition-all duration-200 hover:shadow-[#1A73E8]/40"
         >
-          <ShieldCheck className="h-4 w-4" />
-          {t('admin_request')}
-          <ArrowUpRight className="h-3 w-3 opacity-60" />
-        </button>
+          <motion.span
+            className="absolute inset-0 rounded-full"
+            animate={{
+              boxShadow: [
+                'inset 0 0 0 0 rgba(255,255,255,0)',
+                'inset 0 0 20px 4px rgba(255,255,255,0.1)',
+                'inset 0 0 0 0 rgba(255,255,255,0)',
+              ],
+            }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <Check className="h-4 w-4" />
+          {t('approve')}
+        </motion.button>
       </div>
     </motion.div>
   );
